@@ -1,5 +1,5 @@
-# Inherit common CM stuff
-$(call inherit-product, vendor/mk/config/common_full.mk)
+# Inherit common KyLin stuff
+$(call inherit-product, vendor/kylin/config/common_full.mk)
 
 # Default ringtone
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -13,5 +13,5 @@ PRODUCT_COPY_FILES += \
 
 ifeq ($(TARGET_SCREEN_WIDTH) $(TARGET_SCREEN_HEIGHT),$(space))
     PRODUCT_COPY_FILES += \
-        vendor/mk/prebuilt/common/bootanimation/800.zip:system/media/bootanimation.zip
+        vendor/kylin/prebuilt/common/bootanimation/800.zip:system/media/bootanimation.zip
 endif

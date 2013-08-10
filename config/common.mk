@@ -1,4 +1,4 @@
-PRODUCT_BRAND ?= mokee
+PRODUCT_BRAND ?= kylin
 
 -include vendor/cm-priv/keys.mk
 SUPERUSER_EMBEDDED := true
@@ -30,7 +30,7 @@ TARGET_BOOTANIMATION_SIZE := $(shell \
   fi )
 
 # get a sorted list of the sizes
-bootanimation_sizes := $(subst .zip,, $(shell ls vendor/mk/prebuilt/common/bootanimation))
+bootanimation_sizes := $(subst .zip,, $(shell ls vendor/kylin/prebuilt/common/bootanimation))
 bootanimation_sizes := $(shell echo -e $(subst $(space),'\n',$(bootanimation_sizes)) | sort -rn)
 
 # find the appropriate size and set
@@ -47,7 +47,7 @@ endef
 $(foreach size,$(bootanimation_sizes), $(call check_and_set_bootanimation,$(size)))
 
 PRODUCT_COPY_FILES += \
-    vendor/mk/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
+    vendor/kylin/prebuilt/common/bootanimation/$(TARGET_BOOTANIMATION_NAME).zip:system/media/bootanimation.zip
 endif
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
@@ -69,53 +69,50 @@ endif
 
 # Copy over the changelog to the device
 PRODUCT_COPY_FILES += \
-    vendor/mk/CHANGELOG.mkdn:system/etc/CHANGELOG-MK.txt
+    vendor/kylin/CHANGELOG.mkdn:system/etc/CHANGELOG-KYLIN.txt
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/mk/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
-    vendor/mk/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
-    vendor/mk/prebuilt/common/bin/50-mk.sh:system/addon.d/50-mk.sh \
-    vendor/mk/prebuilt/common/bin/blacklist:system/addon.d/blacklist
+    vendor/kylin/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
+    vendor/kylin/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
+    vendor/kylin/prebuilt/common/bin/50-kylin.sh:system/addon.d/50-kylin.sh \
+    vendor/kylin/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    vendor/mk/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/mk/prebuilt/common/bin/sysinit:system/bin/sysinit
+    vendor/kylin/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/kylin/prebuilt/common/bin/sysinit:system/bin/sysinit
 
 # userinit support
 PRODUCT_COPY_FILES += \
-    vendor/mk/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
+    vendor/kylin/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 
 # SELinux filesystem labels
 PRODUCT_COPY_FILES += \
-    vendor/mk/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
+    vendor/kylin/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
 
 # CM-specific init file
 PRODUCT_COPY_FILES += \
-    vendor/mk/prebuilt/common/etc/init.local.rc:root/init.cm.rc
+    vendor/kylin/prebuilt/common/etc/init.local.rc:root/init.cm.rc
 
-# MoKee-specific init file
+# KyLin-specific init file
 PRODUCT_COPY_FILES += \
-    vendor/mk/prebuilt/common/app/GooglePinYin.apk:system/app/GooglePinYin.apk \
-    vendor/mk/prebuilt/common/app/MoKeeMarket.apk:system/app/MoKeeMarket.apk \
-    vendor/mk/prebuilt/common/app/GameCenter.apk:system/app/GameCenter.apk \
-    vendor/mk/prebuilt/common/lib/libgnustl_shared.so:system/lib/libgnustl_shared.so \
-    vendor/mk/prebuilt/common/lib/libjni_delight.so:system/lib/libjni_delight.so \
-    vendor/mk/prebuilt/common/lib/libjni_googlepinyinime_5.so:system/lib/libjni_googlepinyinime_5.so \
-    vendor/mk/prebuilt/common/lib/libjni_googlepinyinime_latinime_5.so:system/lib/libjni_googlepinyinime_latinime_5.so \
-    vendor/mk/prebuilt/common/lib/libjni_hmm_shared_engine.so:system/lib/libjni_hmm_shared_engine.so \
-    vendor/mk/prebuilt/common/lib/libpush-socket.so:system/lib/libpush-socket.so
+    vendor/kylin/prebuilt/common/app/GooglePinYin.apk:system/app/GooglePinYin.apk \
+    vendor/kylin/prebuilt/common/lib/libgnustl_shared.so:system/lib/libgnustl_shared.so \
+    vendor/kylin/prebuilt/common/lib/libjni_delight.so:system/lib/libjni_delight.so \
+    vendor/kylin/prebuilt/common/lib/libjni_googlepinyinime_5.so:system/lib/libjni_googlepinyinime_5.so \
+    vendor/kylin/prebuilt/common/lib/libjni_googlepinyinime_latinime_5.so:system/lib/libjni_googlepinyinime_latinime_5.so \
+    vendor/kylin/prebuilt/common/lib/libjni_hmm_shared_engine.so:system/lib/libjni_hmm_shared_engine.so 
 
 # Compcache/Zram support
 PRODUCT_COPY_FILES += \
-    vendor/mk/prebuilt/common/bin/compcache:system/bin/compcache \
-    vendor/mk/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache
+    vendor/kylin/prebuilt/common/bin/compcache:system/bin/compcache \
+    vendor/kylin/prebuilt/common/bin/handle_compcache:system/bin/handle_compcache
 
 # Bring in camera effects
 PRODUCT_COPY_FILES +=  \
-    vendor/mk/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
-    vendor/mk/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
+    vendor/kylin/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
+    vendor/kylin/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -125,16 +122,16 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl
 
-# This is MK!
+# This is KYLIN!
 PRODUCT_COPY_FILES += \
-    vendor/mk/config/permissions/com.mokee.android.xml:system/etc/permissions/com.mokee.android.xml
+    vendor/kylin/config/permissions/com.kylin.android.xml:system/etc/permissions/com.mokee.android.xml
 
 # Don't export PS1 in /system/etc/mkshrc.
 PRODUCT_COPY_FILES += \
-    vendor/mk/prebuilt/common/etc/mkshrc:system/etc/mkshrc
+    vendor/kylin/prebuilt/common/etc/mkshrc:system/etc/mkshrc
 
 # T-Mobile theme engine
-include vendor/mk/config/themes_common.mk
+include vendor/kylin/config/themes_common.mk
 
 # Required CM packages
 PRODUCT_PACKAGES += \
@@ -179,16 +176,16 @@ PRODUCT_PACKAGES += \
     ntfsfix \
     ntfs-3g
 
-# Custom MoKee packages
+# Custom KyLin packages
 PRODUCT_PACKAGES += \
     Halo \
-    MoKeeLauncher \
+    KylinLauncher \
     Notepad \
     PermissionManager
 
-# Mokee PhoneLoc
+# KyLin PhoneLoc
 PRODUCT_COPY_FILES +=  \
-    vendor/mk/prebuilt/common/media/mokee-phoneloc.dat:system/media/mokee-phoneloc.dat
+    vendor/kylin/prebuilt/common/media/kylin-phoneloc.dat:system/media/kylin-phoneloc.dat
 
 # Openssh
 PRODUCT_PACKAGES += \
@@ -204,52 +201,52 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     rsync
 
-PRODUCT_PACKAGE_OVERLAYS += vendor/mk/overlay/dictionaries
-PRODUCT_PACKAGE_OVERLAYS += vendor/mk/overlay/common
+PRODUCT_PACKAGE_OVERLAYS += vendor/kylin/overlay/dictionaries
+PRODUCT_PACKAGE_OVERLAYS += vendor/kylin/overlay/common
 
 PRODUCT_VERSION_MAJOR = 42
 PRODUCT_VERSION_MINOR = 2
 PRODUCT_VERSION_MAINTENANCE = RC4
 
-# Set MK_BUILDTYPE
-ifeq ($(shell hostname),mokee)
-MK_BUILDTYPE := EXPERIMENTAL
+# Set KYLIN_BUILDTYPE
+ifeq ($(shell hostname),kylin)
+KYLIN_BUILDTYPE := EXPERIMENTAL
 endif
 
-ifdef MK_NIGHTLY
-    MK_BUILDTYPE := NIGHTLY
+ifdef KYLIN_NIGHTLY
+    KYLIN_BUILDTYPE := NIGHTLY
 endif
-ifdef MK_EXPERIMENTAL
-    MK_BUILDTYPE := EXPERIMENTAL
+ifdef KYLIN_EXPERIMENTAL
+    KYLIN_BUILDTYPE := EXPERIMENTAL
 endif
-ifdef MK_RELEASE
-    MK_BUILDTYPE := RELEASE
+ifdef KYLIN_RELEASE
+    KYLIN_BUILDTYPE := RELEASE
 endif
 
-ifdef MK_BUILDTYPE
-    ifdef MK_EXTRAVERSION
+ifdef KYLIN_BUILDTYPE
+    ifdef KYLIN_EXTRAVERSION
         # Force build type to EXPERIMENTAL
-        MK_BUILDTYPE := EXPERIMENTAL
-        # Remove leading dash from MK_EXTRAVERSION
-        MK_EXTRAVERSION := $(shell echo $(MK_EXTRAVERSION) | sed 's/-//')
-        # Add leading dash to MK_EXTRAVERSION
-        MK_EXTRAVERSION := -$(MK_EXTRAVERSION)
+        KYLIN_BUILDTYPE := EXPERIMENTAL
+        # Remove leading dash from KYLIN_EXTRAVERSION
+        KYLIN_EXTRAVERSION := $(shell echo $(KYLIN_EXTRAVERSION) | sed 's/-//')
+        # Add leading dash to KYLIN_EXTRAVERSION
+        KYLIN_EXTRAVERSION := -$(KYLIN_EXTRAVERSION)
     endif
 else
-    # If MK_BUILDTYPE is not defined, set to UNOFFICIAL
-    MK_BUILDTYPE := UNOFFICIAL
-    MK_EXTRAVERSION :=
+    # If KYLIN_BUILDTYPE is not defined, set to UNOFFICIAL
+    KYLIN_BUILDTYPE := UNOFFICIAL
+    KYLIN_EXTRAVERSION :=
 endif
 
-ifdef MK_RELEASE
-    MK_VERSION := MK$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(MK_BUILD)-$(shell date +%y%m%d)-RELEASE
+ifdef KYLIN_RELEASE
+    KYLIN_VERSION := KYLIN-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(KYLIN_BUILD)-$(shell date +%y%m%d)-RELEASE
 else
-    MK_VERSION := MK$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(MK_BUILD)-$(shell date +%Y%m%d%H%M)-$(MK_BUILDTYPE)
+    KYLIN_VERSION := KYLIN-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(KYLIN_BUILD)-$(shell date +%Y%m%d%H%M)-$(KYLIN_BUILDTYPE)
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.mk.support=bbs.mfunz.com \
-  ro.mk.version=$(MK_VERSION) \
-  ro.modversion=$(MK_VERSION)
+  ro.kylin.support=www.uiss.icoc.cc \
+  ro.kylin.version=$(KYLIN_VERSION) \
+  ro.modversion=$(KYLIN_VERSION)
 
 -include $(WORKSPACE)/hudson/image-auto-bits.mk

@@ -1,16 +1,16 @@
-MoKee OpenSource
+KyLin OS
 ===========
 
 Submitting Patches
 ------------------
-Patches are always welcomed!  Please submit your patches via MoKee Gerrit! You can do this by using these commands:
+Patches are always welcomed!  Please submit your patches via KyLin OS Gerrit! You can do this by using these commands:
 
     (From root android directory)
     . build/envsetup.sh
     (Go to repo you are patching, make your changes and commit)
     mkgerrit <for(new)/changes(patch set)> <branch/change-id> 
 
-    repo start jb-mr1_mkt .
+    repo start jb-mr1 .
     (Make your changes and commit)
     repo upload .
 
@@ -26,22 +26,19 @@ Commit your patches in a single commit. Squash multiple commits using this comma
 
     git rebase -i HEAD~<# of commits>
 
-To view the status of your and others' patches, visit [MoKee Code Review](http://review.mfunz.com/)
+To view the status of your and others' patches, visit [KyLin OS Code Review]
 
 
 Getting Started
 ---------------
 
-To get started with MoKee OpenSource, you will need to get
+To get started with KyLin OS, you will need to get
 familiar with [Repo](https://source.android.com/source/using-repo.html) and [Version Control with Git](https://source.android.com/source/version-control.html).
 
-To initialize your local repository using the MoKee trees, use a command like this:
+To initialize your local repository using the KyLin OS trees, use a command like this:
 
-    repo init -u https://github.com/MoKee/android.git -b jb-mr1_mkt
+    repo init -u https://github.com/KyLinOS/android.git -b jb-mr1
 
- or
-
-    repo init -u ssh://[username]@review.mfunz.com:29418/MoKee/android.git -b jb-mr1_mkt
 
 Then to sync up:
 
@@ -53,13 +50,13 @@ Start Work
 To work faster, we introduced a new build script to help you start compiling.
 
 First, go to the root path of your project. We assume that your source is under 
-(/mokee):
+(/kylin):
 
-    cd /mokee
+    cd /kylin
     
 then feel free to use the build script:
 
-    ./mk [Device] [Variable]
+    ./kl [Device] [Variable]
     
 **Device**: your device name
 
@@ -72,21 +69,21 @@ then feel free to use the build script:
 ####Example:
 Your device is maguro and if you run without any variable, it will clean up your build.prop only:
 
-    ./mk maguro
+    ./kl maguro
 
 You want to sync source before starting:
 
-    ./mk maguro sync
+    ./kl maguro sync
 
 Do a clean compile without deleting whole prebuilt libs:
 
-    ./mk maguro clean
+    ./kl maguro clean
 
 You are fixing a build and want to resume the build, it will build quicker without any cleaning up:
 
-    ./mk maguro fix
+    ./kl maguro fix
 
 You can also do it all at once:
 
-    ./mk maguro sync clean
+    ./kl maguro sync clean
 

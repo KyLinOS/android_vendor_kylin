@@ -1,11 +1,11 @@
-# Inherit common CM stuff
-$(call inherit-product, vendor/mk/config/common.mk)
+# Inherit common KyLin stuff
+$(call inherit-product, vendor/kylin/config/common.mk)
 
 # Bring in all audio files
 include frameworks/base/data/sounds/NewAudio.mk
 
 # Include CM audio files
-include vendor/mk/config/mk_audio.mk
+include vendor/kylin/config/kylin_audio.mk
 
 # Default ringtone
 PRODUCT_PROPERTY_OVERRIDES += \

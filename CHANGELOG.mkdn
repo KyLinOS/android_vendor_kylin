@@ -1,18 +1,14 @@
-MoKee OpenSource
+KyLin OS
 ===============
 
-Visit http://github.com/MoKee for full changelogs and git access.
+Visit http://github.com/KyLinOS for full changelogs and git access.
 
-Visit http://review.mfunz.com for our Gerrit instance.
-
-Visit http://bbs.mfunz.com for talk about MoKee OpenSource.
-
-Visit http://www.mfunz.com for our home page.
+Visit http://review.kylinos.com for our Gerrit instance.
 
 CHANGELOG (notable new features)
 ---------
 
-### 42.2.0
+### 4.2.2.0
 * Common: Android 4.2.2 (Google)
 * Common: cLock Lockscreen and Homescreen Widget
 * Common: Theme Engine Support
@@ -34,7 +30,7 @@ CHANGELOG (notable new features)
 * Status Bar: Show Notification Counts
 * Status Bar: Signal Status Customization
 * Status Bar: Set Date and Time as buttons (with longpress actions)
-* MoKeeLauncher: Launcher Updates
+* KylinLauncher: Launcher Updates
 * Lockscreen: Slider Shortcuts
 * Lockscreen: Maximize Widgets on Wake
 
