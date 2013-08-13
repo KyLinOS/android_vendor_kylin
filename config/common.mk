@@ -75,7 +75,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/kylin/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
     vendor/kylin/prebuilt/common/bin/backuptool.functions:system/bin/backuptool.functions \
-    vendor/kylin/prebuilt/common/bin/50-kylin.sh:system/addon.d/50-kylin.sh \
+    vendor/kylin/prebuilt/common/bin/50-kl.sh:system/addon.d/50-kl.sh \
     vendor/kylin/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 
 # init.d support

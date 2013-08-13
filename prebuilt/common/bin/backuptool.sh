@@ -5,7 +5,7 @@
 
 export C=/tmp/backupdir
 export S=/system
-export V=MK42.2
+export V=KYLIN-42.2
 
 # Preserve /system/addon.d in /tmp/addon.d
 preserve_addon_d() {
@@ -22,7 +22,7 @@ restore_addon_d() {
 
 # Proceed only if /system is the expected major and minor version
 check_prereq() {
-if ( ! grep -q "^ro.mk.version=$V.*" /system/build.prop ); then
+if ( ! grep -q "^ro.kylin.version=$V.*" /system/build.prop ); then
   echo "Not backing up files from incompatible version: $V"
   exit 127
 fi

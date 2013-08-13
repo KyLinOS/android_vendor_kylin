@@ -1,7 +1,7 @@
 #!/sbin/sh
 # 
-# /system/addon.d/50-mk.sh
-# During a MK42 upgrade, this script backs up /system/etc/hosts,
+# /system/addon.d/50-kl.sh
+# During a KyLinOS42.2 upgrade, this script backs up /system/etc/hosts,
 # /system is formatted and reinstalled, then the file is restored.
 #
 
