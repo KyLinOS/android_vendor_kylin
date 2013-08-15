@@ -124,7 +124,7 @@ PRODUCT_COPY_FILES += \
 
 # This is KYLIN!
 PRODUCT_COPY_FILES += \
-    vendor/kylin/config/permissions/com.kylin.android.xml:system/etc/permissions/com.mokee.android.xml
+    vendor/kylin/config/permissions/com.kylin.android.xml:system/etc/permissions/com.kylin.android.xml
 
 # Don't export PS1 in /system/etc/mkshrc.
 PRODUCT_COPY_FILES += \
