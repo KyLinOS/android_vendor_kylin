@@ -249,4 +249,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
   ro.kylin.version=$(KYLIN_VERSION) \
   ro.modversion=$(KYLIN_VERSION)
 
+-include vendor/kylin/sepolicy/sepolicy.mk
 -include $(WORKSPACE)/hudson/image-auto-bits.mk
