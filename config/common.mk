@@ -140,13 +140,13 @@ PRODUCT_PACKAGES += \
     Superuser \
     su
 
-# Optional CM packages
+# Optional KYLIN packages
 PRODUCT_PACKAGES += \
     VoicePlus \
     SoundRecorder \
     Basic
 
-# Custom CM packages
+# Custom KYLIN packages
 PRODUCT_PACKAGES += \
     DSPManager \
     libcyanogen-dsp \
@@ -158,7 +158,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     CellBroadcastReceiver
 
-# Extra tools in CM
+# Extra tools in KYLIN
 PRODUCT_PACKAGES += \
     openvpn \
     e2fsck \
@@ -206,7 +206,7 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/kylin/overlay/common
 
 PRODUCT_VERSION_MAJOR = 42
 PRODUCT_VERSION_MINOR = 2
-PRODUCT_VERSION_MAINTENANCE = RC4
+PRODUCT_VERSION_MAINTENANCE = RC5
 
 # Set KYLIN_BUILDTYPE
 ifeq ($(shell hostname),kylin)
