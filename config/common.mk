@@ -180,7 +180,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Halo \
     KylinLauncher \
-    Notepad \
     PermissionManager
 
 # KyLin PhoneLoc
